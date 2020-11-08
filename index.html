@@ -1,0 +1,53 @@
+<html>
+
+  <head>
+    <title>Verpatch GUI</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="menu.css" rel="stylesheet">
+    <script src="script.tis"></script>
+    <script src="center.tis"></script>
+  </head>
+
+  <body>
+    <ul #menu-bar>
+      <li>
+        <caption>File</caption>
+        <menu>
+          <li#open>Open
+      </li>
+      <li#save>Save</li>
+        </menu>
+        </li>
+
+        <li>
+          <caption>Help</caption>
+          <menu>
+            <li#about>About
+        </li>
+        </menu>
+        </li>
+    </ul>
+    <div .container>
+      <label>Filename:</label>
+      <input|text #filename value="" />
+
+      <label>File Description:</label>
+      <input|text #file-description value="" />
+      <label>File Version:</label>
+      <input|text #file-version value="0.0.0.0" />
+      <label>Product Name:</label>
+      <input|text #product-name value="" />
+      <label>Product Version:</label>
+      <input|text #product-version value="0.0.0.0" />
+      <label>Legal Copyright:</label>
+      <input|text #legal-copyright value="" />
+      <label>Private Build:</label>
+      <input|text #private-build value="0.0.0.0" />
+      <label>Company Name:</label>
+      <input|text #company-name value="" />
+      <label>Original Filename</label>
+      <input|text #original-filename value="" />
+    </div>
+  </body>
+
+</html>

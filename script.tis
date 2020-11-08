@@ -1,0 +1,41 @@
+//view.connectToInspector && view.connectToInspector(rootElement, inspectorIpAddress);
+
+$(#open) << event click {
+  const filter = "All Files (*.*)|*.*";
+  const filename = view.selectFile(#open, filter);
+  if (filename) {
+    const file = filename.slice(7);
+    $(#filename).value = file;
+  }
+}
+
+$(#save).on("click", async function() {
+  const filename = $(#filename).value;
+  const originalFilename = $(#original-filename).value;
+  const fileDescription = $(#file-description).value;
+  const fileVersion = $(#file-version).value;
+  const privateBuild = $(#private-build).value;
+  const productVersion = $(#product-version).value;
+  const companyName = $(#company-name).value;
+  const productName = $(#product-name).value;
+  const legalCopyright = $(#legal-copyright).value;
+  const args = [
+    "/va", filename, fileVersion, 
+    "/s", "OriginalFilename", originalFilename,
+    "/s", "desc", fileDescription,
+    "/s", "pb", privateBuild,
+    "/s", "company", companyName,
+    "/s", "(c)", legalCopyright,
+    "/s", "product", productName,
+    "/pv", productVersion
+  ];
+  const process = System.Process.exec("verpatch.exe", args);
+  process << event stdout (text) { view.msgbox(#error, text, "Error"); }
+});
+
+$(#about) << event click {
+  view.msgbox(#information,
+    "This application uses Sciter Engine (https://sciter.com), © Terra Informatica Software, Inc.",
+    "About"
+  );
+}
